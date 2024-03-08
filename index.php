@@ -35,80 +35,15 @@ if(isset($_GET['colunas']) and $_GET['colunas'] > 5){
 ?>
 
 <style>
+  
   body {
     margin: 0;
     padding: 0;
     <?php echo $centraliza_body; ?>
   }
-
-  .linhas-colunas-div {
-    margin-top: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    width: 25%;
-  }
-
-  .form-linhas-colunas-div {
-    display: flex;
-    justify-content: center;
-  }
-
-  .input-organizar {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2em;
-  }
-  
-  .table-organizar {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2em;
-  }
-
-  .esconder-class {
-    display: none !important;
-  }
-
-  .table>tbody {
-    border: solid 1px #000;
-    margin-top: 1em;
-  }
-
-  .table>tbody>tr>td {
-    border: solid 1px #000;
-    font-size: 20px;
-    font-weight: 700;
-    text-align: center;
-    font-family: 'Montserrat';
-  }
-
-  .titulo-cabecalho {
-    border: solid 1px #000;
-    font-size: 30px;
-    font-weight: 800;
-    text-align: center;
-  }
-
-  .botoes-div {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-  }
-  
-  .botoes-div button a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-  }
-  
-  .botoes-div button {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-  }
-
 </style>
+
+<link rel="stylesheet" href="style.css">
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -210,33 +145,4 @@ if(isset($_GET['colunas']) and $_GET['colunas'] > 5){
   
 </html>
     
-<script>
-
-  $('#download-excel').click(function() {
-    exportToExcel();
-  })
-  
-  function exportToExcel() {
-    // https://stackoverflow.com/questions/22317951/export-html-table-data-to-excel-using-javascript-jquery-is-not-working-properl/38761185#38761185
-      const uri = 'data:application/vnd.ms-excel;base64,';
-      const template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>';
-
-      const base64 = (s) => window.btoa(unescape(encodeURIComponent(s)));
-
-      const format = function (template, context) {
-          return template.replace(/{(\w+)}/g, (m, p) => context[p])
-      };
-
-      const html = document.getElementById('tabela-final-dados').innerHTML;
-      const ctx = {
-          worksheet: 'Worksheet',
-          table: html,
-      };
-
-      const link = document.createElement("a");
-      link.download = "export.xls";
-      link.href = uri + base64(format(template, ctx));
-      link.click();
-  }
-  
-</script>
+<script src="scripts.js"></script>
