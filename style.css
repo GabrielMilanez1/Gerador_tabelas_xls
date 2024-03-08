@@ -1,0 +1,66 @@
+  .linhas-colunas-div {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 25%;
+  }
+
+  .form-linhas-colunas-div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .input-organizar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+  }
+  
+  .table-organizar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+  }
+
+  .esconder-class {
+    display: none !important;
+  }
+
+  .table>tbody {
+    border: solid 1px #000;
+    margin-top: 1em;
+  }
+
+  .table>tbody>tr>td {
+    border: solid 1px #000;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Montserrat';
+  }
+
+  .titulo-cabecalho {
+    border: solid 1px #000;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .botoes-div {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+  }
+  
+  .botoes-div button a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  
+  .botoes-div button {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+  }
